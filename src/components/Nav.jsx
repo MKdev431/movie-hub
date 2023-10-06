@@ -1,5 +1,13 @@
+import { NavLink } from "react-router-dom";
+
 function Nav() {
-  return <h1>Nav</h1>;
+  return (
+    <>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/my-account">My account</NavLink>
+    </>
+  );
 }
 
 export default Nav;
