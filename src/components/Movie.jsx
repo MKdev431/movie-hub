@@ -1,20 +1,20 @@
 import { StyledMovie } from "./styled/Home.styled";
 
-function Movie({ movie1 }) {
+function Movie({ movie }) {
   return (
     <StyledMovie>
       <div>
-        <h3>{movie1.Year}</h3>
+        <h3>{movie.Year}</h3>
       </div>
       <div>
         <img
-          src={movie1.Poster}
-          alt=""
+          src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/400"}
+          alt={movie.Title}
         />
       </div>
       <div>
-        <span>{movie1.Type}</span>
-        <h2>{movie1.Title}</h2>
+        <span>{movie.Type}</span>
+        <h2>{movie.Title}</h2>
       </div>
     </StyledMovie>
   );

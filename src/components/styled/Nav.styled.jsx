@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNav = styled.nav`
   /* width: 100%; */
-  height: 100vh;
+  min-height: 100vh;
   flex-basis: 15%;
   background-color: #333;
   /* overflow-y: scroll; */
