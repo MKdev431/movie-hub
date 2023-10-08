@@ -1,12 +1,21 @@
 import { NavLink } from "react-router-dom";
+import { StyledNav } from "./styled/Nav.styled";
 
 function Nav() {
   return (
-    <>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/my-account">My account</NavLink>
-    </>
+    <StyledNav>
+      <ul>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>
+        <li>
+          <NavLink to="/my-account">My account</NavLink>
+        </li>
+      </ul>
+    </StyledNav>
   );
 }
 

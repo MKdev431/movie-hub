@@ -10,6 +10,11 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${({ theme }) => theme.colors.body};
     }
+
+    .app {
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 `;
 
 export default GlobalStyles;
