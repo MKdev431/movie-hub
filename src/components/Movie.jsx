@@ -9,7 +9,6 @@ function Movie({ movie }) {
       </div>
       <div>
         <img
-          // src={movie.poster_path !== "N/A" ? movie.poster_path : "https://via.placeholder.com/400"}
           src={movie.poster_path !== null ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/400"}
           alt={movie.title}
         />
