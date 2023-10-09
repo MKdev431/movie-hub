@@ -16,17 +16,13 @@ export const StyledHome = styled.div`
 `;
 
 export const StyledContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  /* gap: 20px; */
-  /* width: 200px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
 export const StyledMovie = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   justify-content: space-between;
   width: 450px;
   height: 600px;
