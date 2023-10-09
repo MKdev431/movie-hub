@@ -45,11 +45,16 @@ export const StyledMovie = styled.div`
     transform: scale(1.05, 1.05);
   }
 
+  h2 {
+    margin-top: 5px;
+  }
+
   h3 {
     background-color: transparent;
   }
 
   img {
     margin-block: 10px;
+    width: 65%;
   }
 `;
