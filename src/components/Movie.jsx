@@ -5,7 +5,7 @@ function Movie({ movie }) {
   return (
     <StyledMovie>
       <div>
-        <h3>{movie.release_date}</h3>
+        <h3>{movie.release_date.slice(0, 4)}</h3>
       </div>
       <div>
         <img
