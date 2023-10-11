@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { StyledHome, StyledContainer } from "../components/styled/Home.styled";
-import Search from "../components/Search";
 import Card from "../components/Card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-function Home() {
+function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
+  const { type } = useParams();
+
+  const API_URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${import.meta.env.VITE_API_KEY}`;
+
   const getMovies = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
@@ -17,11 +20,13 @@ function Home() {
     setMovies(data.results);
   };
 
-  const API_URL = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}`;
-
   useEffect(() => {
     getMovies();
-  }, [query]);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  }, [type]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,7 +36,7 @@ function Home() {
   return (
     <StyledHome>
       <h1>The Movie Hub</h1>
-      <Search setQuery={setQuery} />
+      <h2 style={{ marginBlock: "10px", textTransform: "capitalize" }}>{type}</h2>
       {movies?.length > 0 ? (
         <StyledContainer>
           {movies.map(movie => {
@@ -63,4 +68,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MovieList;

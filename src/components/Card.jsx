@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Card({ movie }) {
   return (
     <Link
-      to={`movie/${movie.id}`}
+      to={`/movie/${movie.id}`}
       style={{ textDecoration: "none", color: "#fff" }}
     >
       <StyledMovie>

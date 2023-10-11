@@ -15,13 +15,13 @@ function Nav() {
           <NavLink to="/my-account">My account</NavLink>
         </li>
         <li>
-          <NavLink to="/popular">Popular</NavLink>
+          <NavLink to="/movies/popular">Popular</NavLink>
         </li>
         <li>
-          <NavLink to="/top-rated">Top rated</NavLink>
+          <NavLink to="/movies/top_rated">Top rated</NavLink>
         </li>
         <li>
-          <NavLink to="/upcoming">Upcoming</NavLink>
+          <NavLink to="/movies/upcoming">Upcoming</NavLink>
         </li>
       </ul>
     </StyledNav>

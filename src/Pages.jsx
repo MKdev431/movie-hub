@@ -1,5 +1,7 @@
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import MovieList from "./pages/MovieList";
+import MovieDetails from "./pages/MovieDetails";
 import MyAccount from "./pages/MyAccount";
 import { Routes, Route } from "react-router-dom";
 
@@ -21,11 +23,11 @@ function Pages() {
         />
         <Route
           path="/movie/:id"
-          element={<h3>Movie detail page</h3>}
+          element={<MovieDetails />}
         />
         <Route
           path="/movies/:type"
-          element={<h3>Movies list page</h3>}
+          element={<MovieList />}
         />
         <Route
           path="/*"
