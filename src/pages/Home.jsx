@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { StyledHome, StyledContainer } from "../components/styled/Home.styled";
 import Search from "../components/Search";
-import Movie from "../components/Movie";
+import Card from "../components/Card";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -21,18 +23,38 @@ function Home() {
     searchMovies();
   }, [query]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  });
   return (
     <StyledHome>
       <h1>The Movie Hub</h1>
       <Search setQuery={setQuery} />
       {movies?.length > 0 ? (
         <StyledContainer>
-          {movies.map(movie => (
-            <Movie
-              movie={movie}
-              key={movie.id}
-            />
-          ))}
+          {movies.map(movie => {
+            return isLoading ? (
+              <div key={movie.id}>
+                <SkeletonTheme highlightColor="#444">
+                  <Skeleton
+                    baseColor="#202020"
+                    height={500}
+                    width={400}
+                    duration={2}
+                  />
+                </SkeletonTheme>
+              </div>
+            ) : (
+              <Card
+                movie={movie}
+                key={movie.id}
+              />
+            );
+          })}
         </StyledContainer>
       ) : (
         <div>

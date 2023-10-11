@@ -8,7 +8,7 @@ function Pages() {
     <>
       <Routes>
         <Route
-          path="/"
+          index
           element={<Home />}
         />
         <Route
@@ -18,6 +18,18 @@ function Pages() {
         <Route
           path="/my-account"
           element={<MyAccount />}
+        />
+        <Route
+          path="/movie/:id"
+          element={<h3>Movie detail page</h3>}
+        />
+        <Route
+          path="/movies/:type"
+          element={<h3>Movies list page</h3>}
+        />
+        <Route
+          path="/*"
+          element={<h3>Error page</h3>}
         />
       </Routes>
     </>
