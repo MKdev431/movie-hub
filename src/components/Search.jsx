@@ -8,7 +8,6 @@ function Search({ setQuery }) {
   const submitHandler = () => {
     const value = inputRef.current.value;
     setQuery(value);
-    console.log(value);
   };
 
   const handleKeyDown = e => {

@@ -16,7 +16,6 @@ function MovieDetails() {
       .then(res => res.json())
       .then(data => setCurrentMovieDetails(data));
   };
-  //   console.log(currentMovieDetails.title);
 
   return (
     <div>
