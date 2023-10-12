@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { StyledHome, StyledContainer } from "../components/styled/Home.styled";
 import Card from "../components/Card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -34,7 +35,12 @@ function MovieList() {
   });
   return (
     <StyledHome>
-      <h1>The Movie Hub</h1>
+      <Link
+        to={"/"}
+        style={{ textDecoration: "none" }}
+      >
+        <h1>The Movie Hub</h1>
+      </Link>
       <h2 style={{ marginBlock: "10px", textTransform: "capitalize" }}>{type}</h2>
       {movies?.length > 0 ? (
         <StyledContainer>

@@ -5,7 +5,7 @@ import Pages from "./Pages";
 
 const theme = {
   colors: {
-    body: "#000000",
+    body: "#4c4c4c",
   },
 };
 

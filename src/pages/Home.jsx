@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyledHome, StyledContainer } from "../components/styled/Home.styled";
+import { Link } from "react-router-dom";
 import Search from "../components/Search";
 import Card from "../components/Card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -28,7 +29,12 @@ function Home() {
   });
   return (
     <StyledHome>
-      <h1>The Movie Hub</h1>
+      <Link
+        to={"/"}
+        style={{ textDecoration: "none" }}
+      >
+        <h1>The Movie Hub</h1>
+      </Link>
       <Search setQuery={setQuery} />
       {movies?.length > 0 ? (
         <StyledContainer>

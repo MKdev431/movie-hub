@@ -6,13 +6,6 @@ export const StyledHome = styled.div`
   align-items: center;
   width: 100%;
   /* height: 95vh; */
-
-  h1 {
-    color: #fff;
-    font-size: 80px;
-    margin-top: 20px;
-    font-family: "Lobster", cursive;
-  }
 `;
 
 export const StyledContainer = styled.div`
