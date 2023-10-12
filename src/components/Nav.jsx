@@ -11,9 +11,7 @@ function Nav() {
         <li>
           <NavLink to="/login">Login</NavLink>
         </li>
-        <li>
-          <NavLink to="/my-account">My account</NavLink>
-        </li>
+        <hr style={{ marginBlock: "5px" }} />
         <li>
           <NavLink to="/movies/popular">Popular</NavLink>
         </li>

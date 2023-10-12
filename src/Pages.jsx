@@ -18,10 +18,6 @@ function Pages() {
           element={<Login />}
         />
         <Route
-          path="/my-account"
-          element={<MyAccount />}
-        />
-        <Route
           path="/movie/:id"
           element={<MovieDetails />}
         />
