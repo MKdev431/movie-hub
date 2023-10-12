@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
+import YouTube from "react-youtube";
 import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime } from "../components/styled/MovieDetails.styled";
 
 function MovieDetails() {
   const [currentMovieDetails, setCurrentMovieDetails] = useState();
   const { id } = useParams();
-  const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}`;
+  const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos`;
 
   useEffect(() => {
     getMovies();
-    // console.log(currentMovieDetails);
-    // window.scrollTo(0, 0);
-  });
+  }, []);
 
-  const getMovies = () => {
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => setCurrentMovieDetails(data));
+  const getMovies = async () => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    setCurrentMovieDetails(data);
   };
+
+  function renderTrailer() {
+    const trailer = currentMovieDetails?.videos?.results.find(vid => vid.name.toLowerCase().includes("trailer") || vid[0]);
+    if (!trailer) return;
+    return <YouTube videoId={trailer.key} />;
+  }
+
+  console.log(currentMovieDetails);
 
   return (
     <StyledMovieDetails>
@@ -41,7 +48,7 @@ function MovieDetails() {
             <AiFillStar style={{ color: "yellow" }} />
           </div>
           <div>
-            <p>{`Runtime: ${currentMovieDetails?.runtime}`}</p>
+            <p>{`Runtime: ${currentMovieDetails?.runtime} min`}</p>
           </div>
         </StyledVoteRuntime>
         <div>
@@ -56,6 +63,7 @@ function MovieDetails() {
           <h3 style={{ marginBottom: "5px" }}>Overview:</h3>
           <span>{currentMovieDetails?.overview}</span>
         </div>
+        <div>{currentMovieDetails?.videos ? renderTrailer() : null}</div>
       </StyledInfo>
     </StyledMovieDetails>
   );

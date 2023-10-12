@@ -32,7 +32,7 @@ function MovieList() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
-  });
+  }, []);
   return (
     <StyledHome>
       <Link
