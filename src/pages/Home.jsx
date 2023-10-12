@@ -10,17 +10,25 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  const [pageNum, setPageNum] = useState(1);
+
   const getMovies = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
-    setMovies(data.results);
+    {
+      query ? setMovies(data.results) : setMovies(movies.concat(data.results));
+    }
   };
 
-  const API_URL = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}`;
+  const API_URL = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
+
+  const loadMoreMovies = () => {
+    setPageNum(prevPageNum => prevPageNum + 1);
+  };
 
   useEffect(() => {
     getMovies();
-  }, [query]);
+  }, [query, pageNum]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -64,6 +72,7 @@ function Home() {
           <h2>No movies found</h2>
         </div>
       )}
+      <button onClick={() => loadMoreMovies()}>load more</button>
     </StyledHome>
   );
 }

@@ -25,8 +25,6 @@ function MovieDetails() {
     return <YouTube videoId={trailer.key} />;
   }
 
-  console.log(currentMovieDetails);
-
   return (
     <StyledMovieDetails>
       <StyledImg>

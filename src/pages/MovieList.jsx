@@ -9,19 +9,19 @@ import "react-loading-skeleton/dist/skeleton.css";
 function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [pageNum, setPageNum] = useState(1);
   const { type } = useParams();
 
-  const API_URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${import.meta.env.VITE_API_KEY}`;
+  const API_URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
 
-  const getMovies = async () => {
+  const getMovieList = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
-
-    setMovies(data.results);
+    setMovies(movies.concat(data.results));
   };
 
   useEffect(() => {
-    getMovies();
+    getMovieList();
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -29,10 +29,19 @@ function MovieList() {
   }, [type]);
 
   useEffect(() => {
+    getMovieList();
+  }, [pageNum]);
+
+  useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
   }, []);
+
+  const loadMoreMovies = () => {
+    setPageNum(prevPageNum => prevPageNum + 1);
+  };
+
   return (
     <StyledHome>
       <Link
@@ -69,6 +78,7 @@ function MovieList() {
           <h2>No movies found</h2>
         </div>
       )}
+      <button onClick={() => loadMoreMovies()}>load more</button>
     </StyledHome>
   );
 }
