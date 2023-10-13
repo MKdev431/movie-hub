@@ -1,39 +1,39 @@
+import { useSearchParams } from "react-router-dom";
 import { StyledSearch, StyledInput } from "./styled/Search.styled";
-import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";
 
-function Search({ setQuery, deleteQuery, query, setPageNum }) {
-  const inputRef = useRef();
+function Search({ setQuery, deleteQuery, setPageNum }) {
+  const [searchParams, setSearchParams] = useSearchParams({ storedQuery: "" });
+  const inputValue = searchParams.get("storedQuery");
 
   const submitHandler = () => {
     setPageNum(1);
-    const value = inputRef.current.value;
-    setQuery(value);
+    setQuery(inputValue);
   };
 
   const handleKeyDown = e => {
-    const value = inputRef.current.value;
     if (e.key === "Enter") {
       setPageNum(1);
-      setQuery(value);
+      setQuery(inputValue);
     }
   };
 
   const handleDelete = () => {
     deleteQuery();
-    inputRef.current.value = "";
+    setSearchParams({ storedQuery: "" });
   };
 
   return (
     <StyledSearch>
       <StyledInput
         onKeyDown={handleKeyDown}
-        ref={inputRef}
+        value={inputValue}
+        onChange={e => setSearchParams({ storedQuery: e.target.value })}
         placeholder="Search for movies..."
         type="text"
       />
-      {query ? (
+      {inputValue ? (
         <TiDeleteOutline
           style={{ color: "#fff", fontSize: "34px", cursor: "pointer", marginRight: "8px" }}
           onClick={() => handleDelete()}

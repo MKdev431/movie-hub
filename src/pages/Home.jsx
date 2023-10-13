@@ -16,7 +16,7 @@ function Home() {
     const response = await fetch(API_URL);
     const data = await response.json();
     {
-      pageNum < 2 ? setMovies(data.results) : setMovies(movies.concat(data.results));
+      pageNum < 2 ? setMovies(data.results) : setMovies(currentMovies => [...currentMovies, ...data.results]);
     }
   };
 
@@ -27,13 +27,12 @@ function Home() {
   };
 
   useEffect(() => {
-    getMovies();
-  }, [pageNum]);
+    setMovies([]);
+  }, [query]);
 
   useEffect(() => {
-    setMovies([]);
     getMovies();
-  }, [query]);
+  }, [pageNum, query]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -42,11 +41,11 @@ function Home() {
   }, []);
 
   const deleteQuery = () => {
+    setIsLoading(true);
     setQuery("");
     setPageNum(1);
     setMovies([]);
     getMovies();
-    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
@@ -61,7 +60,6 @@ function Home() {
         <h1>The Movie Hub</h1>
       </Link>
       <Search
-        query={query}
         setQuery={setQuery}
         deleteQuery={deleteQuery}
         setPageNum={setPageNum}
@@ -90,10 +88,16 @@ function Home() {
             })}
           </StyledContainer>
           <button
-            style={{ padding: "30px 50px", marginBlock: "50px" }}
+            style={{ padding: "30px 50px", marginTop: "50px" }}
             onClick={() => loadMoreMovies()}
           >
-            load more
+            Load More
+          </button>
+          <button
+            style={{ padding: "30px 50px", marginBottom: "50px" }}
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+          >
+            Scroll Top
           </button>
         </>
       ) : (

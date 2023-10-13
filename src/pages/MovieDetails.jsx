@@ -20,7 +20,7 @@ function MovieDetails() {
   };
 
   function renderTrailer() {
-    const trailer = currentMovieDetails?.videos?.results.find(vid => vid.name.toLowerCase().includes("trailer") || vid[0]);
+    const trailer = currentMovieDetails?.videos?.results?.find(vid => vid.name.toLowerCase().includes("trailer") || vid[0]);
     if (!trailer) return;
     return <YouTube videoId={trailer.key} />;
   }
@@ -33,7 +33,7 @@ function MovieDetails() {
       <StyledInfo>
         <div>
           <h1>
-            {currentMovieDetails?.title} {`(${currentMovieDetails?.release_date.slice(0, 4)})`}
+            {currentMovieDetails?.title} {`(${currentMovieDetails?.release_date?.slice(0, 4)})`}
           </h1>
         </div>
         <div style={{ textAlign: "center" }}>
@@ -42,7 +42,7 @@ function MovieDetails() {
         <StyledVoteRuntime>
           <div>
             <AiFillStar style={{ color: "yellow" }} />
-            <span style={{ marginInline: "6px" }}>{`${currentMovieDetails?.vote_average.toFixed(1)} / 10`}</span>
+            <span style={{ marginInline: "6px" }}>{`${currentMovieDetails?.vote_average?.toFixed(1)} / 10`}</span>
             <AiFillStar style={{ color: "yellow" }} />
           </div>
           <div>

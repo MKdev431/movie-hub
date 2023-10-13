@@ -18,19 +18,20 @@ function MovieList() {
     const response = await fetch(API_URL);
     const data = await response.json();
     {
-      pageNum > 1 ? setMovies(movies.concat(data.results)) : setMovies(data.results);
+      pageNum > 1 ? setMovies(currentMovies => [...currentMovies, ...data.results]) : setMovies(data.results);
     }
   };
 
   useEffect(() => {
-    getMovieList();
     setIsLoading(true);
+    getMovieList();
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
-  }, [pageNum]);
+  }, [pageNum, type]);
 
   useEffect(() => {
+    setMovies([]);
     setPageNum(1);
   }, [type]);
 
@@ -71,10 +72,16 @@ function MovieList() {
             })}
           </StyledContainer>
           <button
-            style={{ padding: "30px 50px", marginBlock: "50px" }}
+            style={{ padding: "30px 50px", marginTop: "50px" }}
             onClick={() => loadMoreMovies()}
           >
-            load more
+            Load More
+          </button>
+          <button
+            style={{ padding: "30px 50px", marginBottom: "50px" }}
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+          >
+            Scroll Top
           </button>
         </>
       ) : (
