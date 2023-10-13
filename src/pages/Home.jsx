@@ -16,7 +16,7 @@ function Home() {
     const response = await fetch(API_URL);
     const data = await response.json();
     {
-      query ? setMovies(data.results) : setMovies(movies.concat(data.results));
+      pageNum < 2 ? setMovies(data.results) : setMovies(movies.concat(data.results));
     }
   };
 
@@ -28,7 +28,12 @@ function Home() {
 
   useEffect(() => {
     getMovies();
-  }, [query, pageNum]);
+  }, [pageNum]);
+
+  useEffect(() => {
+    setMovies([]);
+    getMovies();
+  }, [query]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,6 +46,10 @@ function Home() {
     setPageNum(1);
     setMovies([]);
     getMovies();
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
   };
 
   return (
@@ -55,6 +64,7 @@ function Home() {
         query={query}
         setQuery={setQuery}
         deleteQuery={deleteQuery}
+        setPageNum={setPageNum}
       />
       {movies?.length > 0 ? (
         <>
@@ -79,7 +89,12 @@ function Home() {
               );
             })}
           </StyledContainer>
-          <button onClick={() => loadMoreMovies()}>load more</button>
+          <button
+            style={{ padding: "30px 50px", marginBlock: "50px" }}
+            onClick={() => loadMoreMovies()}
+          >
+            load more
+          </button>
         </>
       ) : (
         <div>

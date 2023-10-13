@@ -28,17 +28,11 @@ function MovieList() {
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
-  }, [type, pageNum]);
+  }, [pageNum]);
 
   useEffect(() => {
     setPageNum(1);
   }, [type]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-  }, []);
 
   const loadMoreMovies = () => {
     setPageNum(prevPageNum => prevPageNum + 1);
@@ -76,7 +70,12 @@ function MovieList() {
               );
             })}
           </StyledContainer>
-          <button onClick={() => loadMoreMovies()}>load more</button>
+          <button
+            style={{ padding: "30px 50px", marginBlock: "50px" }}
+            onClick={() => loadMoreMovies()}
+          >
+            load more
+          </button>
         </>
       ) : (
         <div>

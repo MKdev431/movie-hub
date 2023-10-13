@@ -24,7 +24,8 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 20px;
     font-family: "Lobster", cursive;
     text-align: center;
-  }
+
+    }
 `;
 
 export default GlobalStyles;

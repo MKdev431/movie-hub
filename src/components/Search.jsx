@@ -3,10 +3,11 @@ import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";
 
-function Search({ setQuery, deleteQuery, query }) {
+function Search({ setQuery, deleteQuery, query, setPageNum }) {
   const inputRef = useRef();
 
   const submitHandler = () => {
+    setPageNum(1);
     const value = inputRef.current.value;
     setQuery(value);
   };
@@ -14,6 +15,7 @@ function Search({ setQuery, deleteQuery, query }) {
   const handleKeyDown = e => {
     const value = inputRef.current.value;
     if (e.key === "Enter") {
+      setPageNum(1);
       setQuery(value);
     }
   };
