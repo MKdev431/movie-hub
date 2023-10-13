@@ -17,7 +17,9 @@ function MovieList() {
   const getMovieList = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
-    setMovies(movies.concat(data.results));
+    {
+      pageNum > 1 ? setMovies(movies.concat(data.results)) : setMovies(data.results);
+    }
   };
 
   useEffect(() => {
@@ -25,17 +27,17 @@ function MovieList() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
-  }, [type]);
+    }, 500);
+  }, [type, pageNum]);
 
   useEffect(() => {
-    getMovieList();
-  }, [pageNum]);
+    setPageNum(1);
+  }, [type]);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 500);
   }, []);
 
   const loadMoreMovies = () => {
@@ -52,33 +54,35 @@ function MovieList() {
       </Link>
       <h2 style={{ marginBlock: "10px", textTransform: "capitalize" }}>{type}</h2>
       {movies?.length > 0 ? (
-        <StyledContainer>
-          {movies.map(movie => {
-            return isLoading ? (
-              <div key={movie.id}>
-                <SkeletonTheme highlightColor="#444">
-                  <Skeleton
-                    baseColor="#202020"
-                    height={500}
-                    width={400}
-                    duration={2}
-                  />
-                </SkeletonTheme>
-              </div>
-            ) : (
-              <Card
-                movie={movie}
-                key={movie.id}
-              />
-            );
-          })}
-        </StyledContainer>
+        <>
+          <StyledContainer>
+            {movies.map(movie => {
+              return isLoading ? (
+                <div key={movie.id}>
+                  <SkeletonTheme highlightColor="#444">
+                    <Skeleton
+                      baseColor="#202020"
+                      height={500}
+                      width={400}
+                      duration={2}
+                    />
+                  </SkeletonTheme>
+                </div>
+              ) : (
+                <Card
+                  movie={movie}
+                  key={movie.id}
+                />
+              );
+            })}
+          </StyledContainer>
+          <button onClick={() => loadMoreMovies()}>load more</button>
+        </>
       ) : (
         <div>
           <h2>No movies found</h2>
         </div>
       )}
-      <button onClick={() => loadMoreMovies()}>load more</button>
     </StyledHome>
   );
 }

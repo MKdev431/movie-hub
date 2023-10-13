@@ -36,6 +36,13 @@ function Home() {
     }, 1500);
   }, []);
 
+  const deleteQuery = () => {
+    setQuery("");
+    setPageNum(1);
+    setMovies([]);
+    getMovies();
+  };
+
   return (
     <StyledHome>
       <Link
@@ -44,35 +51,41 @@ function Home() {
       >
         <h1>The Movie Hub</h1>
       </Link>
-      <Search setQuery={setQuery} />
+      <Search
+        query={query}
+        setQuery={setQuery}
+        deleteQuery={deleteQuery}
+      />
       {movies?.length > 0 ? (
-        <StyledContainer>
-          {movies.map(movie => {
-            return isLoading ? (
-              <div key={movie.id}>
-                <SkeletonTheme highlightColor="#444">
-                  <Skeleton
-                    baseColor="#202020"
-                    height={500}
-                    width={400}
-                    duration={2}
-                  />
-                </SkeletonTheme>
-              </div>
-            ) : (
-              <Card
-                movie={movie}
-                key={movie.id}
-              />
-            );
-          })}
-        </StyledContainer>
+        <>
+          <StyledContainer>
+            {movies.map(movie => {
+              return isLoading ? (
+                <div key={movie.id}>
+                  <SkeletonTheme highlightColor="#444">
+                    <Skeleton
+                      baseColor="#202020"
+                      height={500}
+                      width={400}
+                      duration={2}
+                    />
+                  </SkeletonTheme>
+                </div>
+              ) : (
+                <Card
+                  movie={movie}
+                  key={movie.id}
+                />
+              );
+            })}
+          </StyledContainer>
+          <button onClick={() => loadMoreMovies()}>load more</button>
+        </>
       ) : (
         <div>
           <h2>No movies found</h2>
         </div>
       )}
-      <button onClick={() => loadMoreMovies()}>load more</button>
     </StyledHome>
   );
 }
