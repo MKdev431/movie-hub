@@ -11,6 +11,7 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
   const [pageNum, setPageNum] = useState(1);
+  const [loadButtonDisabled, setLoadButtonDisabled] = useState([]);
 
   const getMovies = async () => {
     const response = await fetch(API_URL);
@@ -18,6 +19,7 @@ function Home() {
     {
       pageNum < 2 ? setMovies(data.results) : setMovies(currentMovies => [...currentMovies, ...data.results]);
     }
+    setLoadButtonDisabled(data.results);
   };
 
   const API_URL = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
@@ -37,7 +39,7 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   }, []);
 
   const deleteQuery = () => {
@@ -48,7 +50,7 @@ function Home() {
     getMovies();
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
   };
 
   return (
@@ -63,6 +65,7 @@ function Home() {
         setQuery={setQuery}
         deleteQuery={deleteQuery}
         setPageNum={setPageNum}
+        query={query}
       />
       {movies?.length > 0 ? (
         <>
@@ -90,6 +93,7 @@ function Home() {
           <button
             style={{ padding: "30px 50px", marginTop: "50px" }}
             onClick={() => loadMoreMovies()}
+            disabled={loadButtonDisabled.length <= 1 && true}
           >
             Load More
           </button>

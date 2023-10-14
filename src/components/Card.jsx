@@ -7,6 +7,7 @@ function Card({ movie }) {
     <Link
       to={`/movie/${movie?.id}`}
       style={{ textDecoration: "none", color: "#fff" }}
+      target="_blank"
     >
       <StyledMovie>
         <div>

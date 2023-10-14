@@ -27,7 +27,7 @@ function MovieList() {
     getMovieList();
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
   }, [pageNum, type]);
 
   useEffect(() => {
