@@ -26,6 +26,10 @@ const GlobalStyles = createGlobalStyle`
     text-align: center;
 
     }
+
+    nav li a.active {
+        color: gold;
+    }
 `;
 
 export default GlobalStyles;

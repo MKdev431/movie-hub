@@ -1,8 +1,8 @@
-import { StyledMovie } from "./styled/Home.styled";
+import { StyledMovie } from "./styled/MovieList.styled";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-function Card({ movie }) {
+function Movie({ movie }) {
   return (
     <Link
       to={`/movie/${movie?.id}`}
@@ -15,7 +15,7 @@ function Card({ movie }) {
         </div>
         <div>
           <img
-            src={movie?.poster_path !== null ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}` : "https://via.placeholder.com/400"}
+            src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}` : "https://via.placeholder.com/400"}
             alt={movie?.title}
           />
         </div>
@@ -30,4 +30,4 @@ function Card({ movie }) {
   );
 }
 
-export default Card;
+export default Movie;

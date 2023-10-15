@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
@@ -9,20 +9,21 @@ function Pages() {
     <>
       <Routes>
         <Route
-          index
-          element={<Home />}
-        />
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+          path="/"
+          element={<MovieList />}
+        >
+          <Route
+            path="/:type"
+            element={<MovieList />}
+          />
+        </Route>
         <Route
           path="/movie/:id"
           element={<MovieDetails />}
         />
         <Route
-          path="/movies/:type"
-          element={<MovieList />}
+          path="/login"
+          element={<Login />}
         />
         <Route
           path="/*"

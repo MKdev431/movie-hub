@@ -6,20 +6,16 @@ function Nav() {
     <StyledNav>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
           <NavLink to="/login">Login</NavLink>
         </li>
-        <hr style={{ marginBlock: "5px" }} />
         <li>
-          <NavLink to="/movies/popular">Popular</NavLink>
+          <NavLink to="/popular">Popular</NavLink>
         </li>
         <li>
-          <NavLink to="/movies/top_rated">Top rated</NavLink>
+          <NavLink to="/top_rated">Top rated</NavLink>
         </li>
         <li>
-          <NavLink to="/movies/upcoming">Upcoming</NavLink>
+          <NavLink to="/upcoming">Upcoming</NavLink>
         </li>
       </ul>
     </StyledNav>
