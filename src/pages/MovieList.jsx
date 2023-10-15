@@ -29,7 +29,6 @@ function MovieList() {
       pageNum > 1 ? setMovies(currentMovies => [...currentMovies, ...data.results]) : setMovies(data.results);
     }
     setLoadButtonDisabled(data.results);
-    console.log(data.results);
   };
 
   useEffect(() => {
