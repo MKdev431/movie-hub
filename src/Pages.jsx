@@ -16,6 +16,10 @@ function Pages() {
             path="/:type"
             element={<MovieList />}
           />
+          <Route
+            path="/genre/:genre"
+            element={<MovieList />}
+          />
         </Route>
         <Route
           path="/movie/:id"

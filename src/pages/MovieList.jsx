@@ -12,20 +12,24 @@ function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [pageNum, setPageNum] = useState(1);
   const [loadButtonDisabled, setLoadButtonDisabled] = useState([]);
   const { type } = useParams();
+  const { genre } = useParams();
 
   const API_URL_BY_TYPE = `https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
   const API_URL_BY_QUERY = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
+  const API_URL_BY_GENRE = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&sort_by=popularity.desc&with_genres=${genre}&api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
 
   const getMovies = async () => {
-    const response = await fetch(query ? API_URL_BY_QUERY : API_URL_BY_TYPE);
+    const response = await fetch((genre && !query && API_URL_BY_GENRE) || (query && API_URL_BY_QUERY) || API_URL_BY_TYPE);
     const data = await response.json();
     {
       pageNum > 1 ? setMovies(currentMovies => [...currentMovies, ...data.results]) : setMovies(data.results);
     }
     setLoadButtonDisabled(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {
@@ -34,16 +38,14 @@ function MovieList() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-  }, [pageNum, type, query]);
+  }, [pageNum, query]);
 
   useEffect(() => {
     setMovies([]);
     setPageNum(1);
-  }, [type]);
-
-  useEffect(() => {
-    setMovies([]);
-  }, [query]);
+    setQuery("");
+    setInputValue("");
+  }, [type, genre]);
 
   const deleteQuery = () => {
     setIsLoading(true);
@@ -54,6 +56,7 @@ function MovieList() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
+    setInputValue("");
   };
 
   const loadMoreMovies = () => {
@@ -64,10 +67,12 @@ function MovieList() {
     <StyledHome>
       <h1>Mike's Movie Hub</h1>
       <Search
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        query={query}
         setQuery={setQuery}
         deleteQuery={deleteQuery}
         setPageNum={setPageNum}
-        query={query}
       />
       {movies?.length > 0 ? (
         <>
