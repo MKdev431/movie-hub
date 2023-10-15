@@ -8,13 +8,6 @@ export const StyledNav = styled.nav`
   padding-top: 20px;
   background-color: #333;
 
-  ul {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: end; */
-    /* gap: 4%; */
-  }
-
   li {
     padding: 10px 30px;
     list-style: none;

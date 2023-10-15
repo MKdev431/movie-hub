@@ -96,19 +96,21 @@ function MovieList() {
               );
             })}
           </StyledContainer>
-          <button
-            style={{ padding: "30px 50px", marginTop: "50px" }}
-            onClick={() => loadMoreMovies()}
-            disabled={loadButtonDisabled.length <= 1 && true}
-          >
-            Load More
-          </button>
-          <button
-            style={{ padding: "30px 50px", marginBottom: "50px" }}
-            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
-          >
-            Scroll Top
-          </button>
+          <div>
+            <button
+              style={{ padding: "10px 20px", marginTop: "50px", marginRight: "5px", borderRadius: "20px", cursor: "pointer" }}
+              onClick={() => loadMoreMovies()}
+              disabled={loadButtonDisabled.length <= 1 && true}
+            >
+              Load More
+            </button>
+            <button
+              style={{ padding: "10px 20px", marginBottom: "50px", marginLeft: "5px", borderRadius: "20px", cursor: "pointer" }}
+              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            >
+              Scroll Top
+            </button>
+          </div>
         </>
       ) : (
         <div>No movies found</div>
