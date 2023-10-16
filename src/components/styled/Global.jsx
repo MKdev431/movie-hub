@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .app {
-        display: flex;
+        /* display: flex; */
         /* flex-direction: column; */
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -30,6 +30,8 @@ const GlobalStyles = createGlobalStyle`
     nav li a.active {
         color: gold;
     }
+
+     
 `;
 
 export default GlobalStyles;

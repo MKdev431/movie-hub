@@ -1,7 +1,18 @@
+import { Icon } from "./styled/Nav.styled";
+
 import { NavLink } from "react-router-dom";
 import { StyledNav } from "./styled/Nav.styled";
+import { VscThreeBars } from "react-icons/vsc";
+import { GrClose } from "react-icons/gr";
+import { useState } from "react";
 
 function Nav() {
+  const [activeTrigger, setActiveTrigger] = useState(false);
+
+  const stateHandler = () => {
+    setActiveTrigger(currentState => !currentState);
+  };
+
   const MovieGenres = {
     Action: 28,
     Adventure: 12,
@@ -22,10 +33,20 @@ function Nav() {
     War: 10752,
     Western: 37,
   };
+
   return (
-    <StyledNav>
-      <ul>
-        <li>
+    <StyledNav style={activeTrigger ? { width: "170px" } : { width: "40px" }}>
+      <Icon style={!activeTrigger ? { display: "block" } : { display: "none" }}>
+        <VscThreeBars onClick={stateHandler} />
+      </Icon>
+      <Icon style={activeTrigger ? { display: "block" } : { display: "none" }}>
+        <GrClose
+          style={{ backgroundColor: "white", borderRadius: "5px" }}
+          onClick={stateHandler}
+        />
+      </Icon>
+      <ul style={activeTrigger ? { display: "block" } : { display: "none" }}>
+        <li style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "1.1rem" }}>
           <NavLink to="/login">Login</NavLink>
         </li>
         <li>

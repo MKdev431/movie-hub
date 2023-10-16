@@ -6,7 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Search from "../components/Search";
 import Movie from "../components/Movie";
 
-import { StyledHome, StyledContainer } from "../components/styled/MovieList.styled";
+import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
 
 function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +37,7 @@ function MovieList() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-  }, [pageNum, query]);
+  }, [pageNum, query, type, genre]);
 
   useEffect(() => {
     setMovies([]);
@@ -63,7 +63,7 @@ function MovieList() {
   };
 
   return (
-    <StyledHome>
+    <StyledList>
       <h1>Mike's Movie Hub</h1>
       <Search
         inputValue={inputValue}
@@ -96,26 +96,26 @@ function MovieList() {
               );
             })}
           </StyledContainer>
-          <div>
-            <button
-              style={{ padding: "10px 20px", marginTop: "50px", marginRight: "5px", borderRadius: "20px", cursor: "pointer" }}
-              onClick={() => loadMoreMovies()}
-              disabled={loadButtonDisabled.length <= 1 && true}
-            >
-              Load More
-            </button>
-            <button
-              style={{ padding: "10px 20px", marginBottom: "50px", marginLeft: "5px", borderRadius: "20px", cursor: "pointer" }}
-              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
-            >
-              Scroll Top
-            </button>
-          </div>
         </>
       ) : (
         <div>No movies found</div>
       )}
-    </StyledHome>
+      <div>
+        <button
+          style={{ padding: "10px 20px", marginBottom: "50px", borderRadius: "20px", cursor: "pointer" }}
+          onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+        >
+          Scroll Top
+        </button>
+        <button
+          style={{ padding: "10px 20px", marginTop: "50px", borderRadius: "20px", cursor: "pointer" }}
+          onClick={() => loadMoreMovies()}
+          disabled={loadButtonDisabled.length <= 1 && true}
+        >
+          Load More
+        </button>
+      </div>
+    </StyledList>
   );
 }
 

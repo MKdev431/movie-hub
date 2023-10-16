@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import YouTube from "react-youtube";
-import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime } from "../components/styled/MovieDetails.styled";
-import Card from "../components/Movie";
+import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime, StyledRelatedMovies } from "../components/styled/MovieDetails.styled";
+import Movie from "../components/Movie";
+import Carousel from "nuka-carousel";
 
 function MovieDetails() {
   const [currentMovieDetails, setCurrentMovieDetails] = useState();
@@ -74,15 +75,22 @@ function MovieDetails() {
           </div>
           <div>{currentMovieDetails?.videos ? renderTrailer() : null}</div>
         </StyledInfo>
-        <div>
+      </StyledMovieDetails>
+      <StyledRelatedMovies>
+        <h2>Related Videos:</h2>
+        <Carousel
+          autoplay={true}
+          slidesToShow={3}
+          wrapAround={true}
+        >
           {similarMovies?.map(movie => (
-            <Card
+            <Movie
               movie={movie}
               key={movie.id}
             />
           ))}
-        </div>
-      </StyledMovieDetails>
+        </Carousel>
+      </StyledRelatedMovies>
     </>
   );
 }

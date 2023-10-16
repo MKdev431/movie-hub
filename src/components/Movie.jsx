@@ -1,4 +1,4 @@
-import { StyledMovie } from "./styled/MovieList.styled";
+import { StyledMovie } from "./styled/MovieDetails.styled";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -9,12 +9,13 @@ function Movie({ movie }) {
       style={{ textDecoration: "none", color: "#fff" }}
       target="_blank"
     >
-      <StyledMovie>
+      <StyledMovie id="movie">
         <div>
           <h3>{movie?.release_date?.slice(0, 4)}</h3>
         </div>
         <div>
           <img
+            style={{ marginInline: "auto" }}
             src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}` : "https://via.placeholder.com/400"}
             alt={movie?.title}
           />

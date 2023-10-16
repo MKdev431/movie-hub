@@ -7,6 +7,9 @@ const theme = {
   colors: {
     body: "#4c4c4c",
   },
+  small: "375px",
+  medium: "1024px",
+  large: "1600px",
 };
 
 function App() {

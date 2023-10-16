@@ -6,7 +6,8 @@ export const StyledNav = styled.nav`
   left: 0;
   height: 100vh;
   padding-top: 20px;
-  background-color: #333;
+  background-color: #222;
+  z-index: 2;
 
   li {
     padding: 10px 30px;
@@ -18,4 +19,13 @@ export const StyledNav = styled.nav`
     color: #fff;
     text-decoration: none;
   }
+`;
+
+export const Icon = styled.nav`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
 `;
