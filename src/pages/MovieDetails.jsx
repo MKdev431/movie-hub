@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import YouTube from "react-youtube";
-import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime, StyledRelatedMovies } from "../components/styled/MovieDetails.styled";
+import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime, StyledTrailer, StyledRelatedMovies } from "../components/styled/MovieDetails.styled";
 import Movie from "../components/Movie";
 import Carousel from "nuka-carousel";
 
@@ -10,6 +10,7 @@ function MovieDetails() {
   const [currentMovieDetails, setCurrentMovieDetails] = useState();
   const [similarMovies, setSimilarMovies] = useState([]);
   const { id } = useParams();
+  const isMedium = window.innerWidth <= 1024 ? true : false;
   const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos`;
   const API_URL_SIMILAR_MOVIES = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_API_KEY}&page=1&append_to_response=videos`;
 
@@ -33,8 +34,18 @@ function MovieDetails() {
   function renderTrailer() {
     const trailer = currentMovieDetails?.videos?.results?.find(vid => vid.name.toLowerCase().includes("trailer") || vid[0]);
     if (!trailer) return;
-    return <YouTube videoId={trailer.key} />;
+    return (
+      <YouTube
+        videoId={trailer.key}
+        opts={isMedium ? ytOpts : null}
+      />
+    );
   }
+
+  const ytOpts = {
+    height: "200",
+    width: "280",
+  };
 
   return (
     <>
@@ -73,14 +84,14 @@ function MovieDetails() {
             <h3 style={{ marginBottom: "5px" }}>Overview:</h3>
             <span>{currentMovieDetails?.overview}</span>
           </div>
-          <div>{currentMovieDetails?.videos ? renderTrailer() : null}</div>
+          <StyledTrailer>{currentMovieDetails?.videos ? renderTrailer() : null}</StyledTrailer>
         </StyledInfo>
       </StyledMovieDetails>
       <StyledRelatedMovies>
         <h2>Related Videos:</h2>
         <Carousel
           autoplay={true}
-          slidesToShow={3}
+          slidesToShow={isMedium ? 1 : 3}
           wrapAround={true}
         >
           {similarMovies?.map(movie => (

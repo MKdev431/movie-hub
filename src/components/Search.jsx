@@ -26,12 +26,12 @@ function Search({ setQuery, deleteQuery, setPageNum, query, inputValue, setInput
       />
       {query ? (
         <TiDeleteOutline
-          style={{ color: "#fff", fontSize: "34px", cursor: "pointer", marginRight: "8px" }}
+          className="deleteIcon"
           onClick={() => deleteQuery()}
         />
       ) : null}
       <FaSearch
-        style={{ color: "#fff", fontSize: "28px", cursor: "pointer" }}
+        className="searchIcon"
         onClick={e => submitHandler(e)}
       />
     </StyledSearch>

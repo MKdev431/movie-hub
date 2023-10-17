@@ -10,6 +10,12 @@ export const StyledSearch = styled.div`
   border-radius: 50px;
   background-color: #333;
   box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    width: 60%;
+    margin: 25px;
+    padding: 8px 15px;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -23,5 +29,9 @@ export const StyledInput = styled.input`
   text-align: center;
   &::placeholder {
     color: #a1a1a1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 14px;
   }
 `;

@@ -15,17 +15,36 @@ export const StyledNav = styled.nav`
     text-align: center;
   }
 
+  li:first-child {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   a {
     color: #fff;
     text-decoration: none;
   }
+
+  @media (max-width: ${({ theme }) => theme.medium}) {
+    li {
+      padding: 6px 26px;
+      font-size: 14px;
+    }
+
+    li:first-child {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Icon = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 10px;
-  right: 10px;
-  font-size: 20px;
+  left: 10px;
+  font-size: 30px;
   cursor: pointer;
   color: #fff;
+  z-index: 3;
 `;

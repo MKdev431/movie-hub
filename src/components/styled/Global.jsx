@@ -25,12 +25,33 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Lobster", cursive;
     text-align: center;
 
+    @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 32px;
+  }
     }
 
     nav li a.active {
         color: gold;
     }
 
+    .searchIcon {
+    font-size: 20px;
+    cursor: pointer;
+
+    @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 16px;
+  }
+  }
+
+  .deleteIcon {
+    margin-right: 8px;
+    font-size: 34px;
+    cursor: pointer;
+
+    @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 24px;
+  }
+  }
      
 `;
 

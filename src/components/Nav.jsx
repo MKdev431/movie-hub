@@ -35,7 +35,7 @@ function Nav() {
   };
 
   return (
-    <StyledNav style={activeTrigger ? { width: "170px" } : { width: "40px" }}>
+    <>
       <Icon style={!activeTrigger ? { display: "block" } : { display: "none" }}>
         <VscThreeBars onClick={stateHandler} />
       </Icon>
@@ -45,72 +45,74 @@ function Nav() {
           onClick={stateHandler}
         />
       </Icon>
-      <ul style={activeTrigger ? { display: "block" } : { display: "none" }}>
-        <li style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "1.1rem" }}>
-          <NavLink to="/login">Login</NavLink>
-        </li>
-        <li>
-          <NavLink to="/popular">Popular</NavLink>
-        </li>
-        <li>
-          <NavLink to="/top_rated">Top rated</NavLink>
-        </li>
-        <li>
-          <NavLink to="/upcoming">Upcoming</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Action}`}>Action</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Adventure}`}>Adventure</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Animation}`}>Animation</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Comedy}`}>Comedy</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Crime}`}>Crime</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Documentary}`}>Documentary</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Drama}`}>Drama</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Family}`}>Family</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Fantasy}`}>Fantasy</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.History}`}>History</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Music}`}>Music</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Mystery}`}>Mystery</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Romance}`}>Romance</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.SciFi}`}>Science Fiction</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Thriller}`}>Thriller</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.War}`}>War</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/genre/${MovieGenres.Western}`}>Western</NavLink>
-        </li>
-      </ul>
-    </StyledNav>
+      <StyledNav style={activeTrigger ? { display: "block" } : { display: "none" }}>
+        <ul>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/popular">Popular</NavLink>
+          </li>
+          <li>
+            <NavLink to="/top_rated">Top rated</NavLink>
+          </li>
+          <li>
+            <NavLink to="/upcoming">Upcoming</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Action}`}>Action</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Adventure}`}>Adventure</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Animation}`}>Animation</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Comedy}`}>Comedy</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Crime}`}>Crime</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Documentary}`}>Documentary</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Drama}`}>Drama</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Family}`}>Family</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Fantasy}`}>Fantasy</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.History}`}>History</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Music}`}>Music</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Mystery}`}>Mystery</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Romance}`}>Romance</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.SciFi}`}>Science Fiction</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Thriller}`}>Thriller</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.War}`}>War</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/genre/${MovieGenres.Western}`}>Western</NavLink>
+          </li>
+        </ul>
+      </StyledNav>
+    </>
   );
 }
 

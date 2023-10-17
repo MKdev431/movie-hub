@@ -7,7 +7,7 @@ const theme = {
   colors: {
     body: "#4c4c4c",
   },
-  small: "375px",
+  small: "530px",
   medium: "1024px",
   large: "1600px",
 };
