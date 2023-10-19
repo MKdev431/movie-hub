@@ -15,8 +15,7 @@ function MovieList() {
   const [inputValue, setInputValue] = useState("");
   const [pageNum, setPageNum] = useState(1);
   const [loadButtonDisabled, setLoadButtonDisabled] = useState([]);
-  const { type } = useParams();
-  const { genre } = useParams();
+  const { type, genre } = useParams();
 
   const API_URL_BY_TYPE = `https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;
   const API_URL_BY_QUERY = `https://api.themoviedb.org/3/${query ? `search/movie?query=${query}&include_adult=false&` : `discover/movie?`}api_key=${import.meta.env.VITE_API_KEY}&page=${pageNum}`;

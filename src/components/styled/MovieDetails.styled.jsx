@@ -72,6 +72,7 @@ export const StyledTrailer = styled.div`
 `;
 
 export const StyledRelatedMovies = styled.div`
+  /* display: flex; */
   margin: 80px;
 
   /* width: 100vw; */
@@ -83,6 +84,9 @@ export const StyledRelatedMovies = styled.div`
 
   #movie {
     margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   @media (max-width: ${({ theme }) => theme.small}) {
