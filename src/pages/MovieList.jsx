@@ -101,13 +101,13 @@ function MovieList() {
       )}
       <div>
         <button
-          style={{ padding: "10px 20px", marginBottom: "50px", borderRadius: "20px", cursor: "pointer" }}
+          style={{ padding: "10px 20px", marginBottom: "50px", borderRadius: "20px", fontSize: "16px", cursor: "pointer" }}
           onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
         >
           Scroll Top
         </button>
         <button
-          style={{ padding: "10px 20px", marginTop: "50px", borderRadius: "20px", cursor: "pointer" }}
+          style={{ padding: "10px 20px", marginTop: "50px", borderRadius: "20px", fontSize: "16px", cursor: "pointer" }}
           onClick={() => loadMoreMovies()}
           disabled={loadButtonDisabled.length <= 1 && true}
         >

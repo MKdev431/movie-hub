@@ -33,7 +33,21 @@ function Movie({ movie }) {
         <AiFillStar style={{ color: "yellow" }} />
         <h2>{movie?.title}</h2>
       </div>
-      {alreadyInWatchlist ? <button onClick={() => removeMovieFromWatchlist(movie.id)}>Remove from Watchlist</button> : <button onClick={() => addMovieToWatchlist(movie)}>Add To Watchlist</button>}
+      {alreadyInWatchlist ? (
+        <button
+          style={{ width: "50%", padding: "10px 20px", borderRadius: "20px", fontSize: "16px", backgroundColor: "red", color: "#fff", cursor: "pointer" }}
+          onClick={() => removeMovieFromWatchlist(movie.id)}
+        >
+          Remove from Watchlist
+        </button>
+      ) : (
+        <button
+          style={{ width: "50%", padding: "10px 20px", borderRadius: "20px", fontSize: "16px", backgroundColor: "green", color: "#fff", cursor: "pointer" }}
+          onClick={() => addMovieToWatchlist(movie)}
+        >
+          Add To Watchlist
+        </button>
+      )}
     </StyledMovie>
   );
 }

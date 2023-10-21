@@ -96,8 +96,12 @@ export const StyledRelatedMovies = styled.div`
 `;
 
 export const StyledMovie = styled.div`
-  width: 450px;
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 490px;
+  height: 700px;
   background-color: #333;
   border-radius: 10px;
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);

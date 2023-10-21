@@ -30,6 +30,10 @@ const GlobalStyles = createGlobalStyle`
   }
     }
 
+    h2 {
+      margin-block: 8px;
+    }
+
     nav li a.active {
         color: gold;
     }
