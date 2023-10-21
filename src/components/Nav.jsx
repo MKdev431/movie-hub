@@ -48,7 +48,7 @@ function Nav() {
       <StyledNav style={activeTrigger ? { display: "block" } : { display: "none" }}>
         <ul>
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/watchlist">Watchlist</NavLink>
           </li>
           <li>
             <NavLink to="/popular">Popular</NavLink>

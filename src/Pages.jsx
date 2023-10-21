@@ -1,5 +1,5 @@
 // import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Watchlist from "./pages/Watchlist";
 import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
 import { Routes, Route } from "react-router-dom";
@@ -26,8 +26,8 @@ function Pages() {
           element={<MovieDetails />}
         />
         <Route
-          path="/login"
-          element={<Login />}
+          path="/watchlist"
+          element={<Watchlist />}
         />
         <Route
           path="/*"
