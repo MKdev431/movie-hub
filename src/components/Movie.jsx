@@ -5,9 +5,10 @@ import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
 
 function Movie({ movie }) {
-  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+  const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist } = useContext(GlobalContext);
   let storedMovie = watchlist.find(item => item.id === movie.id);
   const alreadyInWatchlist = storedMovie ? true : false;
+
   return (
     <StyledMovie id="movie">
       <div>
@@ -32,7 +33,7 @@ function Movie({ movie }) {
         <AiFillStar style={{ color: "yellow" }} />
         <h2>{movie?.title}</h2>
       </div>
-      {alreadyInWatchlist ? <button>Remove from Watchlist</button> : <button onClick={() => addMovieToWatchlist(movie)}>Add To Watchlist</button>}
+      {alreadyInWatchlist ? <button onClick={() => removeMovieFromWatchlist(movie.id)}>Remove from Watchlist</button> : <button onClick={() => addMovieToWatchlist(movie)}>Add To Watchlist</button>}
     </StyledMovie>
   );
 }

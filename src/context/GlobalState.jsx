@@ -18,5 +18,9 @@ export const GlobalProvider = props => {
     dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
   };
 
-  return <GlobalContext.Provider value={{ watchlist: state.watchlist, addMovieToWatchlist }}>{props.children}</GlobalContext.Provider>;
+  const removeMovieFromWatchlist = id => {
+    dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
+  };
+
+  return <GlobalContext.Provider value={{ watchlist: state.watchlist, addMovieToWatchlist, removeMovieFromWatchlist }}>{props.children}</GlobalContext.Provider>;
 };
