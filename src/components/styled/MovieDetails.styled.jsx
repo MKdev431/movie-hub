@@ -100,7 +100,6 @@ export const StyledMovie = styled.div`
   height: 600px;
   background-color: #333;
   border-radius: 10px;
-  cursor: pointer;
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   color: #fff;

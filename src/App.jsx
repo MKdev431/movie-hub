@@ -1,4 +1,5 @@
 import GlobalStyles from "./components/styled/Global";
+import { GlobalProvider } from "./context/GlobalState";
 import { ThemeProvider } from "styled-components";
 import Nav from "./components/Nav";
 import Pages from "./Pages";
@@ -15,11 +16,13 @@ const theme = {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="app">
-        <GlobalStyles />
-        <Nav />
-        <Pages />
-      </div>
+      <GlobalProvider>
+        <div className="app">
+          <GlobalStyles />
+          <Nav />
+          <Pages />
+        </div>
+      </GlobalProvider>
     </ThemeProvider>
   );
 }

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import YouTube from "react-youtube";
@@ -10,6 +11,7 @@ function MovieDetails() {
   const [currentMovieDetails, setCurrentMovieDetails] = useState();
   const [similarMovies, setSimilarMovies] = useState([]);
   const { id } = useParams();
+
   const isMedium = window.innerWidth <= 1024 ? true : false;
   const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos`;
   const API_URL_SIMILAR_MOVIES = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_API_KEY}&page=1&append_to_response=videos`;
