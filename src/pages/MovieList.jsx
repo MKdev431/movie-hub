@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
+
 import Search from "../components/Search";
 import Movie from "../components/Movie";
-
-import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
 
 function MovieList() {
   const [isLoading, setIsLoading] = useState(true);

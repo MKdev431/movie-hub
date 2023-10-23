@@ -1,6 +1,7 @@
-import { StyledSearch, StyledInput } from "./styled/Search.styled";
 import { FaSearch } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";
+
+import { StyledSearch, StyledInput } from "./styled/Search.styled";
 
 function Search({ setQuery, deleteQuery, setPageNum, query, inputValue, setInputValue }) {
   const submitHandler = () => {

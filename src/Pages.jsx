@@ -1,8 +1,8 @@
-// import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+
 import Watchlist from "./pages/Watchlist";
 import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
-import { Routes, Route } from "react-router-dom";
 
 function Pages() {
   return (

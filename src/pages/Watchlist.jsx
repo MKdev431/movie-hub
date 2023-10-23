@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+
 import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
+
 import Movie from "../components/Movie";
 
 function Watchlist() {

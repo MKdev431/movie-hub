@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import YouTube from "react-youtube";
+
 import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime, StyledTrailer, StyledRelatedMovies } from "../components/styled/MovieDetails.styled";
+
 import Movie from "../components/Movie";
 import Carousel from "nuka-carousel";
 

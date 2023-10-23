@@ -1,8 +1,9 @@
-import { StyledMovie } from "./styled/MovieDetails.styled";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
+
+import { StyledMovie } from "./styled/Movie.styled";
 
 function Movie({ movie }) {
   const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist } = useContext(GlobalContext);
@@ -10,7 +11,7 @@ function Movie({ movie }) {
   const alreadyInWatchlist = storedMovie ? true : false;
 
   return (
-    <StyledMovie id="movie">
+    <StyledMovie className="movie">
       <div>
         <h3>{movie?.release_date?.slice(0, 4)}</h3>
       </div>

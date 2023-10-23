@@ -1,10 +1,10 @@
-import { Icon } from "./styled/Nav.styled";
-
 import { NavLink } from "react-router-dom";
-import { StyledNav } from "./styled/Nav.styled";
 import { VscThreeBars } from "react-icons/vsc";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
+
+import { Icon } from "./styled/Nav.styled";
+import { StyledNav } from "./styled/Nav.styled";
 
 function Nav() {
   const [activeTrigger, setActiveTrigger] = useState(false);

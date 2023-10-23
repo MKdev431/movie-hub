@@ -1,6 +1,8 @@
-import GlobalStyles from "./components/styled/Global";
 import { GlobalProvider } from "./context/GlobalState";
 import { ThemeProvider } from "styled-components";
+
+import GlobalStyles from "./components/styled/Global";
+
 import Nav from "./components/Nav";
 import Pages from "./Pages";
 
