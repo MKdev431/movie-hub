@@ -7,6 +7,7 @@ import Movie from "../components/Movie";
 
 function Watchlist() {
   const { watchlist } = useContext(GlobalContext);
+
   return (
     <StyledList>
       <h1>Watchlist</h1>

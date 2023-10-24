@@ -10,6 +10,7 @@ import Movie from "../components/Movie";
 
 function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
+  const isSmall = window.innerWidth <= 530 ? true : false;
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -81,8 +82,8 @@ function MovieList() {
                   <SkeletonTheme highlightColor="#444">
                     <Skeleton
                       baseColor="#202020"
-                      height={500}
-                      width={400}
+                      height={isSmall ? 300 : 500}
+                      width={isSmall ? 200 : 400}
                       duration={2}
                     />
                   </SkeletonTheme>
