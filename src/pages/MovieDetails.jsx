@@ -20,7 +20,7 @@ function MovieDetails() {
   useEffect(() => {
     getMovies();
     getSimilarMovies();
-  }, []);
+  }, [id]);
 
   const getMovies = async () => {
     const response = await fetch(API_URL);
@@ -40,7 +40,7 @@ function MovieDetails() {
     return (
       <YouTube
         videoId={trailer.key}
-        opts={isMedium ? ytOpts : null}
+        opts={isMedium && ytOpts}
       />
     );
   }

@@ -5,8 +5,6 @@ import { useContext } from "react";
 
 import { StyledMovie } from "./styled/Movie.styled";
 
-import MovieList from "../Pages/MovieList";
-
 function Movie({ movie }) {
   const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist } = useContext(GlobalContext);
   let storedMovie = watchlist.find(item => item.id === movie.id);
@@ -21,7 +19,7 @@ function Movie({ movie }) {
         <Link
           to={`/mikes-movie-hub/movie/${movie?.id}`}
           style={{ textDecoration: "none", color: "#fff" }}
-          target={<MovieList />}
+          onClick={() => window.scrollTo({ top: 0, left: 0 })}
         >
           <img
             style={{ marginInline: "auto" }}
