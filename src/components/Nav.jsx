@@ -48,7 +48,12 @@ function Nav() {
       <StyledNav style={activeTrigger ? { display: "block" } : { display: "none" }}>
         <ul>
           <li>
-            <NavLink to="/mikes-movie-hub/watchlist">Watchlist</NavLink>
+            <NavLink
+              to="/mikes-movie-hub/watchlist"
+              onClick={() => window.scrollTo({ top: 0, left: 0 })}
+            >
+              Watchlist
+            </NavLink>
           </li>
           <li>
             <NavLink to="/mikes-movie-hub/popular">Popular</NavLink>
