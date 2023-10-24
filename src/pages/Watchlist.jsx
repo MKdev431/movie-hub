@@ -11,7 +11,7 @@ function Watchlist() {
     <StyledList>
       <h1>Watchlist</h1>
       <StyledContainer>
-        {watchlist.length > 0 ? (
+        {watchlist?.length > 0 ? (
           watchlist.map(movie => (
             <Movie
               key={movie.id}

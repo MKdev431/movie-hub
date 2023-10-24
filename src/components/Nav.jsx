@@ -48,67 +48,67 @@ function Nav() {
       <StyledNav style={activeTrigger ? { display: "block" } : { display: "none" }}>
         <ul>
           <li>
-            <NavLink to="/watchlist">Watchlist</NavLink>
+            <NavLink to="/mikes-movie-hub/watchlist">Watchlist</NavLink>
           </li>
           <li>
-            <NavLink to="/popular">Popular</NavLink>
+            <NavLink to="/mikes-movie-hub/popular">Popular</NavLink>
           </li>
           <li>
-            <NavLink to="/top_rated">Top rated</NavLink>
+            <NavLink to="/mikes-movie-hub/top_rated">Top rated</NavLink>
           </li>
           <li>
-            <NavLink to="/upcoming">Upcoming</NavLink>
+            <NavLink to="/mikes-movie-hub/upcoming">Upcoming</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Action}`}>Action</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Action}`}>Action</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Adventure}`}>Adventure</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Adventure}`}>Adventure</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Animation}`}>Animation</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Animation}`}>Animation</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Comedy}`}>Comedy</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Comedy}`}>Comedy</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Crime}`}>Crime</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Crime}`}>Crime</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Documentary}`}>Documentary</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Documentary}`}>Documentary</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Drama}`}>Drama</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Drama}`}>Drama</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Family}`}>Family</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Family}`}>Family</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Fantasy}`}>Fantasy</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Fantasy}`}>Fantasy</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.History}`}>History</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.History}`}>History</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Music}`}>Music</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Music}`}>Music</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Mystery}`}>Mystery</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Mystery}`}>Mystery</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Romance}`}>Romance</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Romance}`}>Romance</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.SciFi}`}>Science Fiction</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.SciFi}`}>Science Fiction</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Thriller}`}>Thriller</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Thriller}`}>Thriller</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.War}`}>War</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.War}`}>War</NavLink>
           </li>
           <li>
-            <NavLink to={`/genre/${MovieGenres.Western}`}>Western</NavLink>
+            <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Western}`}>Western</NavLink>
           </li>
         </ul>
       </StyledNav>

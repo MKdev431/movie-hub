@@ -109,7 +109,7 @@ function MovieList() {
         <button
           style={{ padding: "10px 20px", marginTop: "50px", borderRadius: "20px", fontSize: "16px", cursor: "pointer" }}
           onClick={() => loadMoreMovies()}
-          disabled={loadButtonDisabled.length <= 1 && true}
+          disabled={loadButtonDisabled?.length <= 1 && true}
         >
           Load More
         </button>

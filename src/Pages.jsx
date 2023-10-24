@@ -9,28 +9,28 @@ function Pages() {
     <>
       <Routes>
         <Route
-          path="/"
+          path="/mikes-movie-hub/"
           element={<MovieList />}
         >
           <Route
-            path="/:type"
+            path="/mikes-movie-hub/:type"
             element={<MovieList />}
           />
           <Route
-            path="/genre/:genre"
+            path="/mikes-movie-hub/genre/:genre"
             element={<MovieList />}
           />
         </Route>
         <Route
-          path="/movie/:id"
+          path="/mikes-movie-hub/movie/:id"
           element={<MovieDetails />}
         />
         <Route
-          path="/watchlist"
+          path="/mikes-movie-hub/watchlist"
           element={<Watchlist />}
         />
         <Route
-          path="/*"
+          path="/mikes-movie-hub/*"
           element={<h3>Error page</h3>}
         />
       </Routes>

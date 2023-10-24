@@ -87,7 +87,7 @@ function MovieDetails() {
             <h3 style={{ marginBottom: "5px" }}>Overview:</h3>
             <span>{currentMovieDetails?.overview}</span>
           </div>
-          <StyledTrailer>{currentMovieDetails?.videos ? renderTrailer() : null}</StyledTrailer>
+          <StyledTrailer>{currentMovieDetails?.videos && renderTrailer()}</StyledTrailer>
         </StyledInfo>
       </StyledMovieDetails>
       <StyledRelatedMovies>
