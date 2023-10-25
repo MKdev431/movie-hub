@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";
 
-import { StyledSearch, StyledInput } from "./styled/Search.styled";
+import { StyledSearch, StyledInput, StyledSearchIcon, StyledDeleteIcon } from "./styled/Search.styled";
 
 function Search({ setQuery, deleteQuery, setPageNum, query, inputValue, setInputValue }) {
   const submitHandler = () => {
@@ -25,16 +25,14 @@ function Search({ setQuery, deleteQuery, setPageNum, query, inputValue, setInput
         placeholder="Search for movies..."
         type="text"
       />
-      {query ? (
-        <TiDeleteOutline
-          className="deleteIcon"
-          onClick={() => deleteQuery()}
-        />
-      ) : null}
-      <FaSearch
-        className="searchIcon"
-        onClick={e => submitHandler(e)}
-      />
+      {query && (
+        <StyledDeleteIcon>
+          <TiDeleteOutline onClick={deleteQuery} />
+        </StyledDeleteIcon>
+      )}
+      <StyledSearchIcon>
+        <FaSearch onClick={e => submitHandler(e)} />
+      </StyledSearchIcon>
     </StyledSearch>
   );
 }

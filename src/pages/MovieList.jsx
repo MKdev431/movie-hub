@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
+import { StyledList, StyledTitle, StyledContainer } from "../components/styled/MovieList.styled";
 
 import Search from "../components/Search";
 import Movie from "../components/Movie";
@@ -64,7 +64,7 @@ function MovieList() {
 
   return (
     <StyledList>
-      <h1>Mike's Movie Hub</h1>
+      <StyledTitle>Mike's Movie Hub</StyledTitle>
       <Search
         inputValue={inputValue}
         setInputValue={setInputValue}

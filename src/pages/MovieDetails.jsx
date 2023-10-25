@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import YouTube from "react-youtube";
 
-import { StyledMovieDetails, StyledImg, StyledInfo, StyledVoteRuntime, StyledTrailer, StyledRelatedMovies } from "../components/styled/MovieDetails.styled";
+import { StyledMovieDetailsWrapper, StyledMovieDetailsImgWrapper, StyledMovieDetailsImg, StyledInfo, StyledInfoMovieTitle, StyledInfoMovieTagline, StyledVoteRuntime, StyledTrailer, StyledRelatedMoviesWrapper, StyledRelatedMoviesTitle } from "../components/styled/MovieDetails.styled";
 
 import Movie from "../components/Movie";
 import Carousel from "nuka-carousel";
@@ -51,18 +51,18 @@ function MovieDetails() {
 
   return (
     <>
-      <StyledMovieDetails>
-        <StyledImg>
-          <img src={currentMovieDetails?.poster_path !== null ? `https://image.tmdb.org/t/p/w500${currentMovieDetails?.poster_path}` : "https://via.placeholder.com/400"} />
-        </StyledImg>
+      <StyledMovieDetailsWrapper>
+        <StyledMovieDetailsImgWrapper>
+          <StyledMovieDetailsImg src={currentMovieDetails?.poster_path !== null ? `https://image.tmdb.org/t/p/w500${currentMovieDetails?.poster_path}` : "https://via.placeholder.com/400"} />
+        </StyledMovieDetailsImgWrapper>
         <StyledInfo>
           <div>
-            <h1>
+            <StyledInfoMovieTitle>
               {currentMovieDetails?.title} {`(${currentMovieDetails?.release_date?.slice(0, 4)})`}
-            </h1>
+            </StyledInfoMovieTitle>
           </div>
           <div style={{ textAlign: "center" }}>
-            <h2>{currentMovieDetails?.tagline}</h2>
+            <StyledInfoMovieTagline>{currentMovieDetails?.tagline}</StyledInfoMovieTagline>
           </div>
           <StyledVoteRuntime>
             <div>
@@ -88,9 +88,9 @@ function MovieDetails() {
           </div>
           <StyledTrailer>{currentMovieDetails?.videos && renderTrailer()}</StyledTrailer>
         </StyledInfo>
-      </StyledMovieDetails>
-      <StyledRelatedMovies>
-        <h2>Related Videos:</h2>
+      </StyledMovieDetailsWrapper>
+      <StyledRelatedMoviesWrapper>
+        <StyledRelatedMoviesTitle>Related Videos:</StyledRelatedMoviesTitle>
         <Carousel
           autoplay={true}
           slidesToShow={isMedium ? 1 : 3}
@@ -103,7 +103,7 @@ function MovieDetails() {
             />
           ))}
         </Carousel>
-      </StyledRelatedMovies>
+      </StyledRelatedMoviesWrapper>
     </>
   );
 }

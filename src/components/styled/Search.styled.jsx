@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledSearch = styled.div`
-  width: 40%;
-  margin: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40%;
+  margin: 40px;
   padding: 20px 30px;
   border-radius: 50px;
   background-color: #333;
@@ -19,19 +19,38 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledInput = styled.input`
+  width: 100%;
   border: none;
+  outline: none;
+  text-align: center;
   font-size: 28px;
   font-weight: 500;
-  width: 100%;
-  outline: none;
   color: #ffffff;
   background-color: #333;
-  text-align: center;
   &::placeholder {
     color: #a1a1a1;
   }
 
   @media (max-width: ${({ theme }) => theme.small}) {
     font-size: 14px;
+  }
+`;
+
+export const StyledSearchIcon = styled.div`
+  font-size: 26px;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 16px;
+  }
+`;
+
+export const StyledDeleteIcon = styled.div`
+  margin-right: 8px;
+  font-size: 34px;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 24px;
   }
 `;

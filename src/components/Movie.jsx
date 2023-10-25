@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
 
-import { StyledMovie } from "./styled/Movie.styled";
+import { StyledMovieWrapper, StyledMovieTitle, StyledMovieDate, StyledMovieImg, StyledWatchlistRemoveButton, StyledWatchlistAddButton } from "./styled/Movie.styled";
 
 function Movie({ movie }) {
   const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist } = useContext(GlobalContext);
@@ -11,9 +11,9 @@ function Movie({ movie }) {
   const alreadyInWatchlist = storedMovie ? true : false;
 
   return (
-    <StyledMovie className="movie">
+    <StyledMovieWrapper className="movie">
       <div>
-        <h3>{movie?.release_date?.slice(0, 4)}</h3>
+        <StyledMovieDate>{movie?.release_date?.slice(0, 4)}</StyledMovieDate>
       </div>
       <div>
         <Link
@@ -21,35 +21,23 @@ function Movie({ movie }) {
           style={{ textDecoration: "none", color: "#fff" }}
           onClick={() => window.scrollTo({ top: 0, left: 0 })}
         >
-          <img
-            style={{ marginInline: "auto" }}
-            src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}` : "https://via.placeholder.com/400"}
-            alt={movie?.title}
-          />
+          {StyledMovieImg && (
+            <StyledMovieImg
+              style={{ marginInline: "auto" }}
+              src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/400"}
+              alt={movie?.title}
+            />
+          )}
         </Link>
       </div>
       <div>
         <AiFillStar style={{ color: "yellow" }} />
         <span style={{ marginInline: "6px" }}>{`${movie?.vote_average?.toFixed(1)} / 10`}</span>
         <AiFillStar style={{ color: "yellow" }} />
-        <h2>{movie?.title}</h2>
+        <StyledMovieTitle>{movie?.title}</StyledMovieTitle>
       </div>
-      {alreadyInWatchlist ? (
-        <button
-          style={{ width: "50%", padding: "10px 20px", borderRadius: "20px", fontSize: "16px", backgroundColor: "red", color: "#fff", cursor: "pointer" }}
-          onClick={() => removeMovieFromWatchlist(movie.id)}
-        >
-          Remove from Watchlist
-        </button>
-      ) : (
-        <button
-          style={{ width: "50%", padding: "10px 20px", borderRadius: "20px", fontSize: "16px", backgroundColor: "green", color: "#fff", cursor: "pointer" }}
-          onClick={() => addMovieToWatchlist(movie)}
-        >
-          Add To Watchlist
-        </button>
-      )}
-    </StyledMovie>
+      {alreadyInWatchlist ? <StyledWatchlistRemoveButton onClick={() => removeMovieFromWatchlist(movie.id)}>Remove from Watchlist</StyledWatchlistRemoveButton> : <StyledWatchlistAddButton onClick={() => addMovieToWatchlist(movie)}>Add To Watchlist</StyledWatchlistAddButton>}
+    </StyledMovieWrapper>
   );
 }
 

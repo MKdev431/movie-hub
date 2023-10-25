@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
-import { StyledList, StyledContainer } from "../components/styled/MovieList.styled";
+import { StyledList, StyledTitle, StyledContainer } from "../components/styled/MovieList.styled";
 
 import Movie from "../components/Movie";
 
@@ -10,7 +10,7 @@ function Watchlist() {
 
   return (
     <StyledList>
-      <h1>Watchlist</h1>
+      <StyledTitle>Watchlist</StyledTitle>
       <StyledContainer>
         {watchlist?.length > 0 ? (
           watchlist.map(movie => (

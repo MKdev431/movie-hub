@@ -3,8 +3,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 
-import { Icon } from "./styled/Nav.styled";
-import { StyledNav } from "./styled/Nav.styled";
+import { StyledNav, StyledNavItem, IconButton } from "./styled/Nav.styled";
 
 function Nav() {
   const [activeTrigger, setActiveTrigger] = useState(false);
@@ -36,85 +35,82 @@ function Nav() {
 
   return (
     <>
-      <Icon style={!activeTrigger ? { display: "block" } : { display: "none" }}>
+      <IconButton style={!activeTrigger ? { display: "block" } : { display: "none" }}>
         <VscThreeBars onClick={stateHandler} />
-      </Icon>
-      <Icon style={activeTrigger ? { display: "block" } : { display: "none" }}>
-        <GrClose
-          style={{ backgroundColor: "white", borderRadius: "5px" }}
-          onClick={stateHandler}
-        />
-      </Icon>
+      </IconButton>
+      <IconButton style={activeTrigger ? { display: "block" } : { display: "none" }}>
+        <GrClose onClick={stateHandler} />
+      </IconButton>
       <StyledNav style={activeTrigger ? { display: "block" } : { display: "none" }}>
         <ul>
-          <li>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink
               to="/mikes-movie-hub/watchlist"
               onClick={() => window.scrollTo({ top: 0, left: 0 })}
             >
               Watchlist
             </NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to="/mikes-movie-hub/popular">Popular</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to="/mikes-movie-hub/top_rated">Top rated</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to="/mikes-movie-hub/upcoming">Upcoming</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Action}`}>Action</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Adventure}`}>Adventure</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Animation}`}>Animation</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Comedy}`}>Comedy</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Crime}`}>Crime</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Documentary}`}>Documentary</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Drama}`}>Drama</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Family}`}>Family</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Fantasy}`}>Fantasy</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.History}`}>History</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Music}`}>Music</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Mystery}`}>Mystery</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Romance}`}>Romance</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.SciFi}`}>Science Fiction</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Thriller}`}>Thriller</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.War}`}>War</NavLink>
-          </li>
-          <li>
+          </StyledNavItem>
+          <StyledNavItem onClick={() => window.scrollTo({ top: 0, left: 0 })}>
             <NavLink to={`/mikes-movie-hub/genre/${MovieGenres.Western}`}>Western</NavLink>
-          </li>
+          </StyledNavItem>
         </ul>
       </StyledNav>
     </>

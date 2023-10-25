@@ -1,51 +1,62 @@
 import styled from "styled-components";
 
-export const StyledMovieDetails = styled.div`
+export const StyledMovieDetailsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 50px;
-
-  @media (max-width: ${({ theme }) => theme.medium}) {
-  }
 `;
 
-export const StyledImg = styled.div`
-  img {
-    width: 100%;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-  }
-
+export const StyledMovieDetailsImgWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.medium}) {
     display: flex;
     justify-content: center;
-    img {
-      width: 70%;
-    }
+  }
+`;
+
+export const StyledMovieDetailsImg = styled.img`
+  width: 100%;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: ${({ theme }) => theme.medium}) {
+    width: 70%;
   }
 `;
 
 export const StyledInfo = styled.div`
   width: 50%;
 
-  h2 {
-    margin-top: 10px;
-  }
-
   @media (max-width: ${({ theme }) => theme.medium}) {
     width: 80%;
-
-    h1 {
-      font-size: 38px;
-    }
   }
 
   @media (max-width: ${({ theme }) => theme.small}) {
     width: 100%;
+  }
+`;
 
-    h1 {
-      font-size: 26px;
-    }
+export const StyledInfoMovieTitle = styled.h1`
+  margin-top: 20px;
+  font-size: 80px;
+  text-align: center;
+  color: #fff;
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 32px;
+  }
+  @media (max-width: ${({ theme }) => theme.medium}) {
+    font-size: 38px;
+  }
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 30px;
+  }
+`;
+
+export const StyledInfoMovieTagline = styled.h2`
+  margin-top: 10px;
+
+  @media (max-width: ${({ theme }) => theme.small}) {
+    font-size: 20px;
   }
 `;
 
@@ -69,23 +80,23 @@ export const StyledTrailer = styled.div`
   margin: 0 auto;
 `;
 
-export const StyledRelatedMovies = styled.div`
+export const StyledRelatedMoviesWrapper = styled.div`
   margin: 80px;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
   .movie {
-    margin-inline: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-inline: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.small}) {
     width: 90%;
     margin: 0 auto 30px;
   }
+`;
+
+export const StyledRelatedMoviesTitle = styled.h2`
+  margin-bottom: 15px;
+  text-align: center;
 `;
